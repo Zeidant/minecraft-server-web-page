@@ -1,49 +1,36 @@
 const onlineStatus = document.querySelector('#onlineStatus');
 const playersCounter = document.querySelector('#playersCounter');
-const domainName = document.querySelector('#domainName')
-const motd = document.querySelector('#motd')
-const playerName = document.querySelector('#playersName')
-const pluginsName = document.querySelector('#pluginsName')
-const versionServer = document.querySelector('#versionServer')
-const mainContent = document.querySelector('#mainContent')
-const urlAPI = "https://api.mcsrvstat.us/2/mc.zeidant.xyz"
+const motd = document.querySelector('#motd');
+const worldLink = document.querySelector('#worldLink');
+const playerName = document.querySelector('#playersName');
+const versionServer = document.querySelector('#versionServer');
 
+const urlAPI = "https://api.mcsrvstat.us/2/mc.zeidant.com";
 
 const getAPI = async () => {
-    const data = await fetch(urlAPI);
-    const mcinfo = await  data.json();
-    //online status
-    if(mcinfo.online){
-        onlineStatus.textContent = 'ONLINE'
-    }else{
-        onlineStatus.innerHTML =`
-        <a style="color:red;">OFFLINE</a>
-        `
-    }
+    try {
+        const data = await fetch(urlAPI);
+        const mcinfo = await data.json();
 
-    //Motd
-    // motd.innerHTML = `${mcinfo.motd.html[0]}<br> ${mcinfo.motd.html[1]}`
-     motd.innerHTML = `${mcinfo.motd.html[0]}`
+        if(mcinfo.online){
+            // ONLINE
+            onlineStatus.style.display = 'block';
+            onlineStatus.textContent = 'ONLINE';
 
- 
+            motd.style.display = 'block';
+            motd.innerHTML = mcinfo.motd.html[0];
 
-    //currentPlayers
-    playersCounter.innerHTML = `
-    <a style="color:white;"> Players Online:</a> ${mcinfo.players.online}/${mcinfo.players.max} `
-    
-   //domainName
-   // domainName.innerHTML = `
-   //<a style="color:white;">IP: </a>zeidantmc.ddns.net`
-   //domainName.textContent = "waiters.ddns.net"
+            playersCounter.style.display = 'block';
+            playersCounter.innerHTML = `Players Online: ${mcinfo.players.online}/${mcinfo.players.max}`;
 
-   //Version
-     versionServer.innerHTML =  `<a style="color:white;"> Version:</a> ${mcinfo.version} `
+            versionServer.style.display = 'block';
+            versionServer.innerHTML = `<span style="color:white;">Version: </span>${mcinfo.version}`;
 
-    //PlayersName
-    if(mcinfo.players.list){
+            playerName.style.display = 'block';
+            if(mcinfo.players.list){
         playerName.innerHTML = `
         <th class="text-center">
-        <p style="color:white;">Players Names:</p>>
+        <p>Players Names:</p>>
         </th>
         ${mcinfo.players.list.map(data =>{
             return `<tr>
@@ -53,27 +40,45 @@ const getAPI = async () => {
     }else{
         playerName.textContent = 'No one on server'
     }
+            worldLink.style.display = 'block';
+            worldLink.textContent = 'Go to map';
+            worldLink.href = 'https://mapa.zeidant.com';
+            worldLink.style.pointerEvents = 'auto';
+            worldLink.style.color = 'white';
+            worldLink.classList.add('rainbow_text_animated', 'link');
+        } else {
+            // OFFLINE → ocultamos todo excepto el worldLink en rojo
+            onlineStatus.style.display = 'none';
+            motd.style.display = 'none';
+            playersCounter.style.display = 'none';
+            versionServer.style.display = 'none';
+            playerName.style.display = 'none';
 
-    // Pluggins names
-    /*
-    pluginsName.innerHTML = `
-    <th class="text-center">
-    <p style="color:white;">Plugins:</p>>
-    </th>
-    ${mcinfo.plugins.names.map(data =>{
-        return `<tr>
-                    <td>${data}</td>
-                </tr>`
-    })}`
-    */
+            worldLink.style.display = 'block';
+            worldLink.textContent = 'OFFLINE';
+            worldLink.removeAttribute('href');
+            worldLink.style.pointerEvents = 'none';
+            worldLink.style.color = 'red';
+            worldLink.classList.remove('rainbow_text_animated', 'link');
+        }
 
+        console.log(mcinfo);
+    } catch (error) {
+        console.error('Error fetching API:', error);
+        // Si falla la API, mostrar OFFLINE
+        onlineStatus.style.display = 'none';
+        motd.style.display = 'none';
+        playersCounter.style.display = 'none';
+        versionServer.style.display = 'none';
+        playerName.style.display = 'none';
 
-
-    console.log(mcinfo)
-}
-
-const getStatus = async () =>{ 
-
-}
+        worldLink.style.display = 'block';
+        worldLink.textContent = 'OFFLINE';
+        worldLink.removeAttribute('href');
+        worldLink.style.pointerEvents = 'none';
+        worldLink.style.color = 'red';
+        worldLink.classList.remove('rainbow_text_animated', 'link');
+    }
+};
 
 getAPI();

@@ -1,7 +1,7 @@
 
 # 🌍 Minecraft Server Status — Zeidant Network
 
-![Preview](assets/preview.png)
+![Preview](assets/preview.gif)
 
 Una página web minimalista y animada para mostrar el estado **online/offline**, versión y jugadores de un servidor de **Minecraft Java Edition**, conectando con una API pública de estado de servidores.
 

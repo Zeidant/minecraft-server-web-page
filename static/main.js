@@ -18,7 +18,7 @@ const getAPI = async () => {
             onlineStatus.textContent = 'ONLINE';
 
             motd.style.display = 'block';
-            motd.innerHTML = mcinfo.motd.html[0];
+            motd.innerHTML = `${mcinfo.motd.html[0]}<br>${mcinfo.motd.html[1]}`;
 
             playersCounter.style.display = 'block';
             playersCounter.innerHTML = `Players Online: ${mcinfo.players.online}/${mcinfo.players.max}`;

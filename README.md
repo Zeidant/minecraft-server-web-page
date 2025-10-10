@@ -137,7 +137,7 @@ Puedes cambiar fácilmente:
 
 ## 🌐 Sitio en vivo
 
-## 👉 [https://mc.zeidant.com](https://mc.zeidant.com)
+> <h1>👉<a href="https://mc.zeidant.com">MC server status</a></h1>
 
 ## 🧑‍💻 Autor  
 <table>
@@ -148,10 +148,12 @@ Puedes cambiar fácilmente:
         <sub><b>Anthony Feliz (@zeidant)</b></sub>
       </a>
       <br>
-      🎮 Fundador y desarrollador de <a href="https://zeidant.com">Zeidant Network</a><br>
+      🎮 Desarrollador de Software<br>
       🌐 <a href="https://zeidant.com">https://zeidant.com</a>
     </td>
   </tr>
 </table>
+
+
 
 ## ⭐ Si te gusta este proyecto, deja una estrella en GitHub 😄

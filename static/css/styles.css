@@ -105,3 +105,23 @@ a {
         color: #fff;
     }
 }
+.green-glow {
+    animation: glow-green 1.5s infinite alternate;
+    color: #00ff66;
+    font-weight: bold;
+}
+
+@keyframes glow-green {
+    0% {
+        text-shadow: 0 0 5px #00ff66, 0 0 10px #00ff66, 0 0 15px #00ff66;
+        color: #eaffea;
+    }
+    50% {
+        text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff66, 0 0 40px #00ff33;
+        color: #ffffff;
+    }
+    100% {
+        text-shadow: 0 0 5px #00ff33, 0 0 15px #00ff66, 0 0 30px #00ff99;
+        color: #eaffea;
+    }
+}

@@ -14,8 +14,7 @@ const getAPI = async () => {
 
         if(mcinfo.online){
             // ONLINE
-            onlineStatus.style.display = 'block';
-            onlineStatus.textContent = 'ONLINE';
+            onlineStatus.innerHTML = `<span class="green-glow">ONLINE</span>`;
 
             motd.style.display = 'block';
             motd.innerHTML = `${mcinfo.motd.html[0]}<br>${mcinfo.motd.html[1]}`;
@@ -38,7 +37,7 @@ const getAPI = async () => {
                     </tr>`
         })}`
     }else{
-        playerName.textContent = 'No one on server'
+        playerName.innerHTML = '<span style="color:white;">No one on server</span>'
     }
             worldLink.style.display = 'block';
             worldLink.textContent = 'Go to map';

@@ -21,7 +21,7 @@ const getAPI = async () => {
             motd.innerHTML = `${mcinfo.motd.html[0]}<br>${mcinfo.motd.html[1]}`;
 
             playersCounter.style.display = 'block';
-            playersCounter.innerHTML = `Players Online: ${mcinfo.players.online}/${mcinfo.players.max}`;
+            playersCounter.innerHTML = `<span style="color:white;">Players Online: </span>${mcinfo.players.online}/${mcinfo.players.max}`;
 
             versionServer.style.display = 'block';
             versionServer.innerHTML = `<span style="color:white;">Version: </span>${mcinfo.version}`;

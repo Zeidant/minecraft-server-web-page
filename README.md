@@ -1,7 +1,9 @@
 
 # 🌍 Minecraft Server Status — Zeidant Network
 
-![Preview](assets/preview.gif)
+<a href="https://mc.zeidant.com" target="_blank">
+  <img src="assets/preview.gif" alt="MC Server Status Preview" style="border:2px solid #ccc; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"/>
+</a>
 
 Una página web minimalista y animada para mostrar el estado **online/offline**, versión y jugadores de un servidor de **Minecraft Java Edition**, conectando con una API pública de estado de servidores.
 

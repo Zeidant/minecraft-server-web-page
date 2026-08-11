@@ -5,7 +5,7 @@ const worldLink = document.querySelector('#worldLink');
 const playerName = document.querySelector('#playersName');
 const versionServer = document.querySelector('#versionServer');
 
-const urlAPI = "https://api.mcsrvstat.us/2/mc.zeidant.com";
+const urlAPI = "https://api.mcsrvstat.us/2/129.80.35.53";
 
 const getAPI = async () => {
     try {
